@@ -13,7 +13,7 @@ const options = {
 }
 
 const findUser = (jwt_payload, done) => {
-  User.findById(jwt_payload_id)
+  User.findById(jwt_payload.id)
   .then(foundUser => done(null, foundUser))
   .catch(err => done(err))
 }
@@ -57,4 +57,6 @@ const createUserToken = (req, user) => {
     }
 }
 
-module.exports = { createUserToken }
+const requireToken = passport.authenticate('jwt', {session: false})
+
+module.exports = { createUserToken, requireToken }
