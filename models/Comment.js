@@ -16,7 +16,7 @@ const commentSchema = new.mongoose.Schema({
     type: mongoose.Schema.Types.userName,
     ref: 'User'
   }, 
-  theory: {
+  comment: {
     type: Text,
     required: true,
     minlength: 2,
