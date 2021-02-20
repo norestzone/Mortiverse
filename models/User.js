@@ -12,6 +12,10 @@ const options = {
 }
 
 const userSchema = new mongoose.Schema({
+  userName: {
+    type: String,
+    required: true
+  },
   email: {
     type: String,
     unique: true,
@@ -21,6 +25,14 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  conspiracyTheories: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'ConspiracyTheory'
+  }],
+  comments: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Comment'
+  }],
   motto: String
 }, options)
 
