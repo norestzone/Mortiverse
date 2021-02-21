@@ -15,7 +15,6 @@ function characterEntry() {
                 origin: data[i].origin.name
             })
         }
-        console.log(Character[0])
 })}
 
 characterEntry()
