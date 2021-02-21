@@ -1,21 +1,22 @@
 const axios = require('axios')
-const Character = require('../models/Character')
+const Episode = require('../models/Episode')
 
-function characterEntry() {
-    axios.get('https://rickandmortyapi.com/api/character')
-    .then(apiResponse => {
-        let data = apiResponse.data.results
-        for(let i = 0; i < data.length; i++) {
-            Character.create({
-                name: data[i].name,
-                species: data[i].species,
-                status: data[i].status,
-                image: data[i].image,
-                episodes: data[i].episode,
-                origin: data[i].origin.name
+function createEpisode(e) {
+        console.log(e)
+        e.forEach(episode => {
+            Episode.create({
+                name: episode.name,
+                episode: episode.episode,
+                date: episode.air_date,
+                characters: [episode.characters]
             })
-        }
-        console.log(Character[0])
+        })
+}
+
+function episodeEntry() {
+    axios.get('https://rickandmortyapi.com/api/episode?page=3')
+    .then(apiResponse => {
+        createEpisode(apiResponse.data.results)
 })}
 
-characterEntry()
+episodeEntry()
