@@ -1,7 +1,6 @@
 const axios = require('axios')
 const Episode = require('../models/Episode')
 
-<<<<<<< HEAD
 Episode.updateOne(
     {episode: 'S04E08'},
     {
@@ -27,24 +26,3 @@ Episode.updateOne(
 // })}
 
 // locationEntry()
-=======
-function createEpisode(e) {
-        console.log(e)
-        e.forEach(episode => {
-            Episode.create({
-                name: episode.name,
-                episode: episode.episode,
-                date: episode.air_date,
-                characters: [episode.characters]
-            })
-        })
-}
-
-function episodeEntry() {
-    axios.get('https://rickandmortyapi.com/api/episode?page=3')
-    .then(apiResponse => {
-        createEpisode(apiResponse.data.results)
-})}
-
-episodeEntry()
->>>>>>> 34d383ff3359242a5d13c50ab5c47fa45d29a98a
