@@ -13,6 +13,7 @@ app.use(cors())
 app.use(express.urlencoded({extended: false}))
 // Controller middleware
 app.use('/api', require('./controllers/user'))
+app.use('/wiki', require('./controllers/wikiContent'))
 
 app.listen(process.env.PORT || 8000, () => {
   console.log('Smooth JAZZ! V98-8000')
