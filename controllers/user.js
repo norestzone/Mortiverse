@@ -19,7 +19,6 @@ router.post('/signup', (req, res) => {
     password: hash,
     dimension: req.body.dimension,
     rickOrMorty: req.body.rickOrMorty
-     
   }))
   .then(hashedUser => User.create(hashedUser))
   .then(createdUser => createUserToken(req, createdUser))

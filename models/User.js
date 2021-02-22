@@ -31,6 +31,7 @@ const userSchema = new mongoose.Schema({
   },
   rickOrMorty: {
     type: String
+  },
   rickOrMorty: {
     type: String,
     required: true
