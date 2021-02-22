@@ -25,11 +25,18 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+
   dimension: {
     type: String
   },
   rickOrMorty: {
     type: String
+  rickOrMorty: {
+    type: String,
+    required: true
+  },
+  dimension: {
+    type: String,
   },
   conspiracyTheories: [{
     type: mongoose.Schema.Types.ObjectId,
@@ -38,8 +45,7 @@ const userSchema = new mongoose.Schema({
   comments: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Comment'
-  }],
-  motto: String
+  }]
 }, options)
 
 module.exports = mongoose.model('User', userSchema)
