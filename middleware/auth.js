@@ -50,8 +50,11 @@ const createUserToken = (req, user) => {
     } else {
       const payload = {
         id: user._id,
+        userName: user.userName,
         email: user.email,
-        motto: user.motto
+        motto: user.motto,
+        dimension: user.dimension,
+        rickOrMorty: user.rickOrMorty
       }
       return jwt.sign(payload, process.env.JWT_SECRET, {expiresIn: 3600})
     }
