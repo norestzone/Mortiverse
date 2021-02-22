@@ -25,6 +25,12 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+
+  dimension: {
+    type: String
+  },
+  rickOrMorty: {
+    type: String
   rickOrMorty: {
     type: String,
     required: true
