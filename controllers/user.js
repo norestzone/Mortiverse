@@ -4,6 +4,8 @@ const User = require('../models/User')
 const bcrypt = require('bcrypt')
 const { createUserToken, requireToken } = require('../middleware/auth')
 const passport = require('passport')
+const methodOverride = require('method-override')
+
 
 router.post('/login', (req, res) => {
   User.findOne({email: req.body.email})
@@ -24,6 +26,19 @@ router.post('/signup', (req, res) => {
   .then(createdUser => createUserToken(req, createdUser))
   .then(token => res.status(201).json({token}))
   .catch(err => console.log(`Error creating User ${err}`))
+})
+
+router.post('/update', requireToken, (req, res) => {
+  User.findOneAndUpdate({_id: user._id}, {email: req.body.email, userName: req.body.userName, email: req.body.email, rickOrMorty: req.body.rickOrMorty })
+  .then(user => ({
+    userName: req.body.userName,
+    email: req.body.email,
+    rickOrMorty: req.body.rickOrMorty
+  }))
+})
+
+router.post('/profile', requireToken, (req, res) => {
+  User.remove({_id: user._id})
 })
 
 // Example of how to protect a route with 
