@@ -6,7 +6,7 @@ const commentSchema = new mongoose.Schema({
 })
 
 const conspiracyTheorySchema = new mongoose.Schema({
-  author: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}, 
+  author: String, 
   body: String,
   comments: [commentSchema]
 })
