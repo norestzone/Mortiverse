@@ -14,8 +14,9 @@ router.get('/theories', (req, res) => {
 )})
 
 router.post('/theories', (req, res) => {
+    console.log(req.body)
     ConspiracyTheory.create({
-        author: req.body.userName,
+        author: req.body.author,
         body: req.body.theory
     })
 })
