@@ -33,6 +33,7 @@ router.put('/update', (req, res) => {
   User.findByIdAndUpdate(req.body.id, {email: req.body.email, userName: req.body.userName, dimension: req.body.dimension, rickOrMorty: req.body.rickOrMorty })
   .then(updatedUser => {
     res.status(200)
+    res.send('/profile')
   })
   .catch(err => {
     console.log(err)
