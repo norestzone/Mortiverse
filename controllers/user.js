@@ -5,7 +5,6 @@ const bcrypt = require('bcrypt')
 const { createUserToken, requireToken } = require('../middleware/auth')
 const passport = require('passport')
 
-
 router.post('/login', (req, res) => {
   User.findOne({email: req.body.email})
   .then(foundUser => createUserToken(req, foundUser))
