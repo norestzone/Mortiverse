@@ -4,6 +4,7 @@ const Character = require('../models/Character')
 const Episode = require('../models/Episode')
 const Location = require('../models/Location')
 const ConspiracyTheory = require('../models/ConspiracyTheory')
+const { createUserToken, requireToken } = require('../middleware/auth')
 
 require('dotenv').config()
 
