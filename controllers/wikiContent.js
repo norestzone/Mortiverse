@@ -12,6 +12,13 @@ router.get('/theories', (req, res) => {
     .then(theoryData => res.send(theoryData)
 )})
 
+router.post('/theories', (req, res) => {
+    ConspiracyTheory.create({
+        author: req.body.userName,
+        body: req.body.theory
+    })
+})
+
 router.get('/characters', (req, res) => {
     Character.find({})
     .then(characterData => res.send(characterData)
