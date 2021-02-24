@@ -6,7 +6,6 @@ const { createUserToken, requireToken } = require('../middleware/auth')
 const passport = require('passport')
 const methodOverride = require('method-override')
 
-
 router.post('/login', (req, res) => {
   User.findOne({email: req.body.email})
   .then(foundUser => createUserToken(req, foundUser))
