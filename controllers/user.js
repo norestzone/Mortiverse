@@ -4,7 +4,6 @@ const User = require('../models/User')
 const bcrypt = require('bcrypt')
 const { createUserToken, requireToken } = require('../middleware/auth')
 const passport = require('passport')
-const methodOverride = require('method-override')
 
 
 router.post('/login', (req, res) => {
@@ -40,8 +39,14 @@ router.put('/update', (req, res) => {
   })
 })
 
-router.delete('/profile', requireToken, (req, res) => {
-  User.findByIdAndRemove(req.user.id)
+router.post('/profile', (req, res) => {
+  console.log('Blue', req.body.id)
+  User.findByIdAndRemove(req.body.id)
+  .then(deletedUser => {
+    console.log(deletedUser)
+    res.status(200)
+    res.send('/signup')
+  })
 })
 
 // Example of how to protect a route with 
