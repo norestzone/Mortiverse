@@ -1,15 +1,15 @@
 const mongoose = require('../db/connection')
 
-
 const commentSchema = new mongoose.Schema({
   author: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   body: String
 })
 
-const conspiracySchema = new mongoose.Schema({
+const conspiracyTheorySchema = new mongoose.Schema({
   author: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}, 
   body: String,
   comments: [commentSchema]
 })
 
-module.exports = mongoose.model('ConspiracyTheory', conspiracySchema)
+const ConspiracyTheory = mongoose.model('ConspiracyTheory', conspiracyTheorySchema)
+module.exports = ConspiracyTheory
