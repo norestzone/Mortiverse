@@ -5,7 +5,8 @@ const commentSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   }, 
-  body: String
+  body: String,
+  userName: String
 })
 
 const conspiracyTheorySchema = new mongoose.Schema({
@@ -14,7 +15,8 @@ const conspiracyTheorySchema = new mongoose.Schema({
     ref: 'User'
   }, 
   body: String,
-  comments: [commentSchema]
+  comments: [commentSchema],
+  theorist: String
 })
 
 const ConspiracyTheory = mongoose.model('ConspiracyTheory', conspiracyTheorySchema)
