@@ -21,6 +21,17 @@ router.post('/theories', (req, res) => {
     })
 })
 
+router.post('/comments', (req, res) => {
+    ConspiracyTheory.findById(req.body.theoryId)
+    .then(theory => {
+        theory.comments.push({
+            author: req.body.author,
+            body: req.body.comment
+        })
+        theory.save()
+    })
+})
+
 router.get('/characters', (req, res) => {
     Character.find({})
     .then(characterData => res.send(characterData)
