@@ -38,8 +38,14 @@ router.put('/update', (req, res) => {
   })
 })
 
-router.delete('/profile', requireToken, (req, res) => {
-  User.findByIdAndRemove(req.user.id)
+router.post('/profile', (req, res) => {
+  console.log('Blue', req.body.id)
+  User.findByIdAndRemove(req.body.id)
+  .then(deletedUser => {
+    console.log(deletedUser)
+    res.status(200)
+    res.send('/signup')
+  })
 })
 
 // Example of how to protect a route with 
