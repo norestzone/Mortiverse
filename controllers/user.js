@@ -4,8 +4,6 @@ const User = require('../models/User')
 const bcrypt = require('bcrypt')
 const { createUserToken, requireToken } = require('../middleware/auth')
 const passport = require('passport')
-const methodOverride = require('method-override')
-
 
 router.post('/login', (req, res) => {
   User.findOne({email: req.body.email})
