@@ -1,5 +1,7 @@
 const mongoose = require('../db/connection')
 
+// it's conspiracy time
+
 const commentSchema = new mongoose.Schema({
   author: {
     type: mongoose.Schema.Types.ObjectId,
