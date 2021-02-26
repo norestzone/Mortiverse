@@ -48,18 +48,4 @@ router.post('/profile', (req, res) => {
   })
 })
 
-// Example of how to protect a route with 
-// PRIVATE
-// GET /api/private
-router.get('/private', requireToken, (req, res) => {
-  console.log(req.user)
-  return res.json({'message': 'thou hath been granted permission to access this route.'})
-})
-
-// test route below:
-// router.get('/random', (req, res) => {
-//   console.log(req.user)
-//   return res.json({'message': 'thou hath been granted permission to access this route.'})
-// })
-
 module.exports = router
