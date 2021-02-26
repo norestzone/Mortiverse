@@ -4,6 +4,7 @@ const Character = require('../models/Character')
 const Episode = require('../models/Episode')
 const Location = require('../models/Location')
 const ConspiracyTheory = require('../models/ConspiracyTheory')
+const User = require('../models/User')
 const { createUserToken, requireToken } = require('../middleware/auth')
 
 require('dotenv').config()
@@ -19,6 +20,11 @@ router.post('/theories', (req, res) => {
         author: req.body.author,
         body: req.body.theory,
         theorist: req.body.theorist
+    })
+    .then(theory => {
+        User.findById(theory.author)
+        User.conspiracyTheories.push(theory._id)
+        User.save()
     })
 })
 
